@@ -1,0 +1,15 @@
+{
+"name": "SMREPORTINGSOLUTION",
+"version": "1.0.0",
+"description":"",
+"main": "Admin.js",
+
+"scripts": {
+"start": "node Admin.js"
+},
+
+"keywords": [],
+"author":"",
+"license": "ISC"
+
+}
