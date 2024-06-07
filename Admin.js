@@ -536,9 +536,27 @@ const server = http.createServer(async (req, res) => {
     req.on('end', async () => {
         const params = new URLSearchParams(body);
         const reportName = params.get('report-name');
-        const fromDate = params.get('from-date');
-        const toDate = params.get('to-date');
+        let fromDate = params.get('from-date');
+        let toDate = params.get('to-date');
         
+        // Check if From Date is empty, assign current date if it is
+        if (!fromDate) {
+            const currentDate = new Date();
+            const year = currentDate.getFullYear();
+            const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+            const day = String(currentDate.getDate()).padStart(2, '0');
+            fromDate = `${year}-${month}-${day}`;
+        }
+
+        // Check if To Date is empty, assign current date if it is
+        if (!toDate) {
+            const currentDate = new Date();
+            const year = currentDate.getFullYear();
+            const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+            const day = String(currentDate.getDate()).padStart(2, '0');
+            toDate = `${year}-${month}-${day}`;
+        }
+
         // Convert date format from yyyy-MM-dd to dd-MM-yyyy
         const [year1, month1, day1] = fromDate.split('-');
         const formattedfromDate = `${day1}-${month1}-${year1}`;
