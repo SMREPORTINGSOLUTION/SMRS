@@ -505,11 +505,11 @@ const server = http.createServer(async (req, res) => {
         </div>
         <div>
             <label for="from-date">From Date:</label>
-            <input type="date" id="from-date" name="from-date" required>
+            <input type="date" id="from-date" name="from-date">
         </div>
         <div>
             <label for="to-date">To Date:</label>
-            <input type="date" id="to-date" name="to-date" required>
+            <input type="date" id="to-date" name="to-date">
         </div>
         <input type="submit" value="View Report">
     </form>
